@@ -17,4 +17,16 @@
         ;
 };
 
+/ {
+    led_strip: led_strip {
+        compatible = "zmk,ws2812-strip"; // hoạt động tốt với WS2812B & SK6812 mini-e
+        label = "LED_STRIP";
+        gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; // thay bằng GPIO thực tế bạn dùng
+        chain-length = <27>; // 6 + 21 = 27 LED
+        color-order = <RGB>; // Hoặc GRB tuỳ loại LED bạn có
+        status = "okay";
+    };
+};
+
+
 // vim: filetype=dts fdm=marker:
