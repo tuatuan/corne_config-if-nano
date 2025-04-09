@@ -22,7 +22,7 @@
  * chain-length là tổng số LED: 6 WS2812B + 21 SK6812 Mini-E mỗi bên = 27, tổng 54 cho cả hai bên
  */
 &led_strip {
-    chain-length = <54>;
+    chain-length = <27>;
 };
 
 /*
