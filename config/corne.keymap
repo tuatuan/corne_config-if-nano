@@ -25,6 +25,41 @@
     chain-length = <27>;
 };
 
+/ {
+    behaviors {
+        rgb_tog: rgb_tog {
+            compatible = "zmk,behavior-toggle-rgb";
+            label = "RGB TOG";
+            bindings = <&rgb_ug TOGGLE>;
+        };
+
+        rgb_bri_i: rgb_bri_i {
+            compatible = "zmk,behavior-toggle-rgb";
+            label = "RGB BRI+";
+            bindings = <&rgb_ug INCREASE_BRIGHTNESS>;
+        };
+
+        rgb_bri_d: rgb_bri_d {
+            compatible = "zmk,behavior-toggle-rgb";
+            label = "RGB BRI-";
+            bindings = <&rgb_ug DECREASE_BRIGHTNESS>;
+        };
+
+        rgb_efe_n: rgb_efe_n {
+            compatible = "zmk,behavior-toggle-rgb";
+            label = "RGB EFF NEXT";
+            bindings = <&rgb_ug NEXT_EFFECT>;
+        };
+
+        rgb_efe_p: rgb_efe_p {
+            compatible = "zmk,behavior-toggle-rgb";
+            label = "RGB EFF PREV";
+            bindings = <&rgb_ug PREV_EFFECT>;
+        };
+    };
+};
+
+
 /*
  * Định nghĩa keymap cho bàn phím
  */
