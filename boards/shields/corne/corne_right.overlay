@@ -20,8 +20,3 @@
     status = "okay";
 };
 
-/ {
-    ext_power {
-        status = "disabled";
-    };
-};
