@@ -27,6 +27,12 @@
         status = "okay";
     };
 };
+/ {
+    ext_power {
+        status = "disabled";
+    };
+};
+
 
 
 // vim: filetype=dts fdm=marker:
