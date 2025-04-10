@@ -10,14 +10,18 @@
         <&pro_micro 14 GPIO_ACTIVE_HIGH>;
 };
 
-/ {
-    // Định nghĩa node LED bên phải (có thể được đặt tên là led_right)
-    led_right: led_right {
-        compatible = "sk6812";
-        status = "okay";
-        num-leds = <21>;
+&under {
+    compatible = "zmk,ws2812-strip";
+    label = "LED_STRIP";
+    gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; // dùng đúng chân bạn đang hàn
+    chain-length = <54>;       // Tổng số LED trên cả 2 bên: 27 mỗi bên
+    split-index = <27>;        // LED bên trái = 27, bên phải cũng phải khai báo vậy để đồng bộ
+    color-order = <GRB>;       // Thử lại RGB nếu màu bị sai
+    status = "okay";
+};
 
-        // Cấu hình thêm nếu cần, ví dụ cấu hình pin hoặc các thông số điện khác:
-        // pin = <&gpio0 16 GPIO_ACTIVE_LOW>;
+/ {
+    ext_power {
+        status = "disabled";
     };
 };
