@@ -9,3 +9,15 @@
         <&pro_micro 15 GPIO_ACTIVE_HIGH>,
         <&pro_micro 14 GPIO_ACTIVE_HIGH>;
 };
+
+/ {
+    // Định nghĩa node LED bên phải (có thể được đặt tên là led_right)
+    led_right: led_right {
+        compatible = "sk6812";
+        status = "okay";
+        num-leds = <21>;
+
+        // Cấu hình thêm nếu cần, ví dụ cấu hình pin hoặc các thông số điện khác:
+        // pin = <&gpio0 16 GPIO_ACTIVE_LOW>;
+    };
+};
