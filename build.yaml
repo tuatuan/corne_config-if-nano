@@ -1,5 +1,38 @@
-include:
-  - board: nice_nano_v2
-    shield: corne_left nice_oled
-  - board: nice_nano_v2
-    shield: corne_right nice_oled
+name: Build ZMK Firmware
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: zmkfirmware/zmk-build-arm:latest  # Dùng phiên bản ZMK mới nhất
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ZMK
+        run: |
+          west init -l .
+          west update
+
+      - name: Build Firmware
+        run: |
+          west build -p -b nice_nano_v2 -d build/corne_left -- -DSHIELD="corne_left nice_oled" -DZMK_CONFIG="${{ github.workspace }}/config"
+          west build -p -b nice_nano_v2 -d build/corne_right -- -DSHIELD="corne_right nice_oled" -DZMK_CONFIG="${{ github.workspace }}/config"
+
+      - name: Rename Firmware Files
+        run: |
+          mv build/corne_left/zephyr/zmk.uf2 corne_left_nice_nano_v2-zmk.uf2
+          mv build/corne_right/zephyr/zmk.uf2 corne_right_nice_nano_v2-zmk.uf2
+
+      - name: Upload Firmware Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: |
+            corne_left_nice_nano_v2-zmk.uf2
+            corne_right_nice_nano_v2-zmk.uf2
