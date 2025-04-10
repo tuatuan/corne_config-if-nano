@@ -25,15 +25,4 @@
         ;
 };
 
-/ {
-    led_strip: led_strip {
-        compatible = "zmk,ws2812-strip";
-        label = "LED_STRIP";
-        gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>; // ví dụ nếu bên phải dùng pin khác
-        chain-length = <27>;
-        color-order = <RGB>;
-        status = "okay";
-    };
-};
-
 // vim: filetype=dts fdm=marker:
