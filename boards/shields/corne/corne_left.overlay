@@ -9,3 +9,16 @@
         <&pro_micro 15 GPIO_ACTIVE_HIGH>,
         <&pro_micro 14 GPIO_ACTIVE_HIGH>;
 };
+
+/ {
+    // Định nghĩa node LED bên trái (có thể được đặt tên là led_left)
+    led_left: led_left {
+        compatible = "ws2812";
+        status = "okay";
+        num-leds = <6>;
+
+        // Nếu cần thiết lập thêm thông số như gpio, pin hoặc tần số,
+        // bạn có thể định nghĩa thêm thuộc tính ở đây. Ví dụ:
+        // pin = <&gpio0 15 GPIO_ACTIVE_LOW>;
+    };
+};
