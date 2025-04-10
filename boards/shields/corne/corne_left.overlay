@@ -9,13 +9,3 @@
         <&pro_micro 15 GPIO_ACTIVE_HIGH>,
         <&pro_micro 14 GPIO_ACTIVE_HIGH>;
 };
-
-&under {
-    compatible = "zmk,ws2812-strip";
-    label = "LED_STRIP";
-    gpios = <&gpio1 5 GPIO_ACTIVE_HIGH>; // kiểm tra lại chân thực tế bạn dùng!
-    chain-length = <54>;       // Tổng số LED 2 bên
-    split-index = <27>;        // LED của bên trái là 27
-    color-order = <GRB>;       // Nếu bạn dùng WS2812B hoặc SK6812 mini-e thì thường là GRB
-    status = "okay";
-};
