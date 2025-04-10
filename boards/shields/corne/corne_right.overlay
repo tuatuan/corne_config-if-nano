@@ -24,5 +24,11 @@
         , <&pro_micro 21 GPIO_ACTIVE_HIGH>
         ;
 };
+/ {
+    ext_power {
+        status = "disabled";
+    };
+};
+
 
 // vim: filetype=dts fdm=marker:
