@@ -61,7 +61,6 @@
     zephyr,display = &oled;
     zmk,kscan = &kscan0;
     zmk,physical-layout = &foostan_corne_6col_layout;
-    zmk,studio_rpc_uart = &uart0;
 };
 
 default_transform: keymap_transform_0 {
