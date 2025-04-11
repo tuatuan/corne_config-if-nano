@@ -40,7 +40,7 @@
  * - Keymap chứa các layer, mỗi layer ánh xạ phím vật lý đến hành động hoặc ký tự.
  * - Bàn phím có bố cục chia đôi (split) với 6 cột trái, 6 cột phải, và 4 hàng (bao gồm hàng phím chức năng).
  */
-& {
+/ {
     keymap {
         compatible = "zmk,keymap";
 
