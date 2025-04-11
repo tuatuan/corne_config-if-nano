@@ -21,6 +21,13 @@
 };
 
 / {
+    chosen {
+        zmk,studio-rpc-uart = &uart0;
+    };
+};
+
+
+/ {
     ext_power {
         status = "disabled";
     };
