@@ -21,6 +21,16 @@
 };
 
 / {
+    chosen {
+        zmk,studio_rpc_uart = &cdc_acm_uart0;
+    };
+};
+
+&cdc_acm_uart0 {
+    status = "okay";
+};
+
+/ {
     ext_power {
         status = "disabled";
     };
